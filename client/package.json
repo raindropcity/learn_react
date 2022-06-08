@@ -2,7 +2,7 @@
   "name": "learn-react",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3002/bistro",
+  "proxy": "https://still-escarpment-13575.herokuapp.com/bistro",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",

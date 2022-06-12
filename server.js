@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const Router = require('./server/routes/route')
-const PORT = process.env.PORT || 3002
+const PORT = process.env.PORT || 3001
 // 引用npm提供的「跨網域存取」middleware。cors (Cross-Origin Resource Sharing)。
 // 因前端(React)與後端(自訂API)分屬不同網域，前端需透過cors才可順利呼叫後端API。
 app.use(cors())

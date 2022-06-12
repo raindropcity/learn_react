@@ -9,7 +9,8 @@ export default function Input() {
     bistroPhone: "",
     googleMapURL: "",
     bistroRating: "",
-    description: ""
+    description: "",
+    bistroPicture: ""
   })
 
   const [warningOrNot, setWarningOrNot] = React.useState({
@@ -19,7 +20,8 @@ export default function Input() {
     bistroPhone: false,
     googleMapURL: false,
     bistroRating: false,
-    description: false
+    description: false,
+    bistroPicture: false
   })
 
   function handleChangeData(event) {
@@ -45,7 +47,8 @@ export default function Input() {
       bistroPhone: inputData.bistroPhone,
       googleMapURL: inputData.googleMapURL,
       bistroRating: inputData.bistroRating,
-      description: inputData.description
+      description: inputData.description,
+      bistroPicture: inputData.bistroPicture
     }
 
     // 每當按下submit按鈕時，都將warningOrNot重新賦值為預設的樣子。後續會以warningOrNot來決定是否render出警告語
@@ -56,7 +59,8 @@ export default function Input() {
       bistroPhone: false,
       googleMapURL: false,
       bistroRating: false,
-      description: false
+      description: false,
+      bistroPicture: false
     })
 
     // 使用axios將form資料POST到後端，後端透過express與mongoose將資料存入資料庫
@@ -71,7 +75,8 @@ export default function Input() {
           bistroPhone: "",
           googleMapURL: "",
           bistroRating: "",
-          description: ""
+          description: "",
+          bistroPicture: ""
         })
 
         alert('Your loved Bistro information has been submitted! Once it gets through the investigation, we will put it on the site!')
@@ -110,6 +115,9 @@ export default function Input() {
 
         <input type="number" name="bistroRating" placeholder="Bistro Rating (1.0 ~ 5.0)" onChange={handleChangeData} value={inputData.bistroRating} required />
         {warningOrNot.bistroRating && <p className="warning">{warningOrNot.bistroRating}</p>}
+
+        <input type="text" name="bistroPicture" placeholder="Bistro Picture URL" onChange={handleChangeData} value={inputData.bistroPicture} required />
+        {warningOrNot.bistroPicture && <p className="warning">{warningOrNot.bistroPicture}</p>}
 
         <textarea name="description" placeholder="Description for this Bistro(max words: 175)..." onChange={handleChangeData} value={inputData.description} required />
         {warningOrNot.description && <p className="warning">{warningOrNot.description}</p>}

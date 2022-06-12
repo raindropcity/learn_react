@@ -22,6 +22,10 @@ const recommendSchema = new Schema({
   },
   description: {
     type: String
+  },
+  // 用於儲存二進位制(Buffer)的餐廳相片檔案
+  bistroPicture: {
+    type: Buffer
   }
 })
 

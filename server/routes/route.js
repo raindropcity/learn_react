@@ -23,13 +23,13 @@ const expressValidatorStrategy = [
 ]
 
 // The middleware express.json() is going to parse the request coming from the frontend.
-Routes.post('/recommend', express.json(), expressValidatorStrategy, async (req, res) => {
+Routes.post('/bistro/recommend', express.json(), expressValidatorStrategy, (req, res) => {
   const { bistroName, bistroCategory, bistroLocation, bistroPhone, googleMapURL, bistroRating, description, bistroPicture
   } = req.body
 
   // 控制使用者傳入的圖片尺寸
   if (bistroPicture) {
-    await sharp(bistroPicture)
+    sharp(bistroPicture)
       .resize({ width: 600, height: 400 })
       .toBuffer()
   }

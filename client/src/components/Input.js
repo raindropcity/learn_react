@@ -64,7 +64,7 @@ export default function Input() {
     })
 
     // 使用axios將form資料POST到後端，後端透過express與mongoose將資料存入資料庫
-    axios.post('http://localhost:3001/bistro/recommend', newInputData)
+    axios.post('https://still-escarpment-13575.herokuapp.com/bistro/recommend', newInputData)
       .then((theResponseFromBackend) => {
         console.log(theResponseFromBackend.data)
         // POST資料去後端之後，清除form裡面的value

@@ -19,7 +19,11 @@ const expressValidatorStrategy = [
 
   check('description').trim().notEmpty().withMessage('Description is required.').bail().isLength({ min: 1, max: 175 }).withMessage('number of words must within 1 ~ 175.'),
 
-  check('bistroPicture').trim().notEmpty().withMessage('Bistro Picture is required.').bail().isURL().withMessage('please text the url of Bistro Picture.')
+  check('bistroPicture').trim().notEmpty().withMessage('Bistro Picture is required.').bail().isURL().withMessage('please text the url of Bistro Picture.').bail()
+    .custom((value) => {
+      const picOrNot = value.toLowerCase().includes('jpg') || value.toLowerCase().includes('jpeg') || value.toLowerCase().includes('png')
+      if (!picOrNot) throw new Error('please provide jpg, jpeg or png URL.')
+    })
 ]
 
 // The middleware express.json() is going to parse the request coming from the frontend.

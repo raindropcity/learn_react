@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 // 取得資料庫連線狀態
 const db = mongoose.connection
 // 這邊路徑代表透過環境參數process.env.MONGODB_URI取用Heroku中所設定的MONGODB_URI，若沒有拿到，則在主機建立一個名為「learn_react」的database。因此去Robo 3T 中看資料庫時，會看到有個叫learn_react的database。
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/learn_react'
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://reactbistro:learnreact@cluster0.vyqdz.mongodb.net/recommend?retryWrites=true&w=majority'
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
 

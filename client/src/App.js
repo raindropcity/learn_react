@@ -84,7 +84,7 @@ function App() {
         removeBistro={removeBistro}
       />
     )
-  })// 若favoriteList為空陣列，改成render 「Waiting for addition」
+  })
 
   return (
     <Router>

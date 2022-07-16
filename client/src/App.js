@@ -28,14 +28,14 @@ function App() {
         [name]: value
       }
     })
-    setSearchArr([])
+    // setSearchArr([])
   }
 
   function handleSubmitSearch(event) {
     event.preventDefault()
     setSearchArr(restaurant.filter((element) => element.name.toLowerCase().split(" ").join("").includes(inputData.search.toLowerCase().split(" ").join(""))))
   }
-  
+
   // 如果searchArr裡面有東西，代表使用者輸入的內容有match到某餐廳，應以searchArr來做map()，render卡片出來
   const renderCards = searchArr.length ? searchArr : restaurant
 
@@ -84,11 +84,11 @@ function App() {
         removeBistro={removeBistro}
       />
     )
-  })
-  
+  })// 若favoriteList為空陣列，改成render 「Waiting for addition」
+
   return (
     <Router>
-      <Navbar setSearchArr={setSearchArr}/>
+      <Navbar setSearchArr={setSearchArr} />
       <Routes>
         <Route path="/bistro"
           element={
@@ -100,7 +100,9 @@ function App() {
               <div className="main-section">{card}</div>
             </>}
         />
-        <Route path="/bistro/favorite" element={<div className="main-section">{favorite}</div>} />
+        <Route path="/bistro/favorite"
+          element={favoriteList.length ? <div className="main-section">{favorite}</div> :
+            <h3 className="empty-fav">Waiting for addition . . .</h3>} />
         <Route path="/bistro/recommend" element={<Input />} />
       </Routes>
     </Router>

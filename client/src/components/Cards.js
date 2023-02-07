@@ -8,7 +8,7 @@ function Cards(props) {
   }
 
   return (
-    <div className="card-con" id={props.bistro.id}>
+    <div className="card-con" id={props.bistro.id} >
       {!switchCard ?
         <>
           <div className="bistro-img-con" onClick={handleSwitch}>
